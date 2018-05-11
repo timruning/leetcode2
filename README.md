@@ -15,3 +15,5 @@ MaximumProductSubarray.cpp
     对于子序列，注意负数的个数，和首尾负数影响的乘积。
     如果有0将结果与0比较即可。
     比较简单的地方是都是int，所以绝对值必然会大。
+
+LargestSumofAverages2.cpp fail

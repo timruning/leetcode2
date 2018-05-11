@@ -1,11 +1,10 @@
-#include "medium/MinCostClimbingStairs.cpp"
+#include "medium/LargestSumofAverages.cpp"
 #include "common/common.cpp"
 
 int main() {
-    MinCostClimbingStairs minCostClimbingStairs;
-    vector<int> a = {6, 1, 4, 5, 3, 2};
-    int x = minCostClimbingStairs.minCostClimbingStairs(a);
-    printVec(a);
+    LargestSumofAverages largestSumofAverages;
+    vector<int> a = {9, 1, 2, 3, 9};
+    double x = largestSumofAverages.largestSumOfAverages(a, 3);
     cout << x << endl;
     return 0;
 }
