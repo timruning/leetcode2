@@ -1,2 +1,2 @@
 aux_source_directory(. MEDIUM_SRC)
-add_library(medium ${MEDIUM_SRC} ArithmeticSlices413.cpp firstLeftIterator.cpp SubarraySumEqualsK.cpp)
+add_library(medium ${MEDIUM_SRC} ArithmeticSlices413.cpp firstLeftIterator.cpp SubarraySumEqualsK.cpp "825FriendsOfAppropriat Ages.cpp")

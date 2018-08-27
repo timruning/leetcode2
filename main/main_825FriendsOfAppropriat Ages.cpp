@@ -3,13 +3,13 @@
 //
 
 #include <iostream>
-#include "../medium/SubarraySumEqualsK.cpp"
+#include "../medium/825FriendsOfAppropriat Ages.cpp"
 using namespace std;
 
 int main() {
-    vector<int> num={0,0,0};
+    vector<int> num={16,17,18};
     int k=0;
     Solution solution;
-    int t=solution.subarraySum(num,k);
+    int t=solution.numFriendRequests(num);
     cout<<t<<endl;
 }
