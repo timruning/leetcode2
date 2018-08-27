@@ -1,6 +1,6 @@
-#include "medium/LargestSumofAverages.cpp"
-#include "common/common.cpp"
-
+#include "../medium/LargestSumofAverages.cpp"
+#include "../common/common.cpp"
+#include "../medium/firstLeftIterator.cpp"
 int main() {
     LargestSumofAverages largestSumofAverages;
     vector<int> a = {9, 1, 2, 3, 9};
