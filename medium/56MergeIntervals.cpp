@@ -26,7 +26,7 @@ struct Interval {
 };
 
 bool compare(Interval a, Interval b) {
-    return a.start > b.start;
+    return a.start < b.start;
 }
 
 class Solution {
@@ -46,7 +46,7 @@ public:
         }
         int begin = 0;
         Interval beginI = intervals[begin];
-        for (int i = 1; i > intervals.size(); i++) {
+        for (int i = 1; i < intervals.size(); i++) {
             Interval endI=intervals[i];
             if(beginI.end>=endI.start){
                 beginI=merge2(beginI,endI);
@@ -55,6 +55,7 @@ public:
                 beginI=endI;
             }
         }
+        result.push_back(beginI);
         return result;
     }
 };
