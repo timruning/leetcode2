@@ -1,0 +1,2 @@
+cmake_minimum_required(VERSION 3.12)
+add_library(ALGORITHM 152MaximumProductSubarray.cpp 54SpiralMatrix.cpp 713SubarrayProductLessThanK.cpp)
