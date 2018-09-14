@@ -1,2 +1,2 @@
 cmake_minimum_required(VERSION 3.12)
-add_library(MAIN main.cpp main_152MaximumProductSubarray.cpp main_54SpiralMatrix.cpp main_713SubarrayProductLessThanK.cpp main_775GlobalandLocalInversions.cpp main_523ContinuousSubarraySum.cpp main_837New21Game.cpp main_792NumberofMatchingSubsequences.cpp)
+add_library(MAIN main.cpp main_152MaximumProductSubarray.cpp main_54SpiralMatrix.cpp main_713SubarrayProductLessThanK.cpp main_775GlobalandLocalInversions.cpp main_523ContinuousSubarraySum.cpp main_837New21Game.cpp main_792NumberofMatchingSubsequences.cpp main_670MaximumSwap.cpp)
