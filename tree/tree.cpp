@@ -29,6 +29,9 @@ TreeNode *buildTree(int a[], int n) {
         TreeNode *father = queue[0];
         if (father == NULL) {
             index += 2;
+            queue.push_back(NULL);
+            queue.push_back(NULL);
+            queue.erase(queue.begin());
             continue;
         }
         int left = index;
@@ -46,8 +49,7 @@ TreeNode *buildTree(int a[], int n) {
         }
         if (right < n) {
             if (a[right] != null) {
-                TreeNode *right_node = new TreeNode(a[right]);
-                queue.push_back(right_node);
+                right_node = new TreeNode(a[right]);
             }
             queue.push_back(right_node);
         } else {
@@ -57,4 +59,5 @@ TreeNode *buildTree(int a[], int n) {
         father->right = right_node;
         queue.erase(queue.begin());
     }
+    return root;
 }
