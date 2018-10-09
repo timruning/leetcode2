@@ -10,4 +10,4 @@ add_subdirectory(main)
 add_subdirectory(algorithm)
 aux_source_directory(. DIR_SRCS)
 
-add_executable(leetcode import_iostream.h ALGORITHM EASY main/main_tree.cpp)
+add_executable(leetcode import_iostream.h ALGORITHM EASY medium/718MaximumLengthofRepeatedSubarray.cpp)
