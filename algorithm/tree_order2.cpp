@@ -1,10 +1,10 @@
 //
-// Created by 宋峰 on 2018/9/25.
+// Created by 宋峰 on 2018/10/9.
 //
 
 #include <vector>
-#include <iostream>
 #include "../tree/tree.cpp"
+#include <iostream>
 
 using namespace std;
 
@@ -27,7 +27,7 @@ void pre_order(TreeNode *root) {
     }
 }
 
-void middle_order(TreeNode *root) {
+void mid_order(TreeNode *root) {
     vector<TreeNode *> stack;
     TreeNode *p = root;
     while (p != nullptr) {
@@ -40,9 +40,8 @@ void middle_order(TreeNode *root) {
             stack.pop_back();
             cout << top->val << " ";
             p = top->right;
-            if (stack.size() == 0) {
+            if (stack.size() == 0)
                 break;
-            }
         }
     }
 }
@@ -54,11 +53,11 @@ void post_order(TreeNode *root) {
     stack.push_back(cur);
     while (stack.size() > 0) {
         cur = stack[stack.size() - 1];
-        if ((cur->left == nullptr && cur->right == nullptr) ||
+        if ((cur->right == nullptr && cur->left == nullptr) ||
             (pre != nullptr && (pre == cur->left || pre == cur->right))) {
-            cout << cur->val << " ";
-            stack.pop_back();
             pre = cur;
+            cout<<cur->val<<" ";
+            stack.pop_back();
         } else {
             if (cur->right != nullptr) {
                 stack.push_back(cur->right);
