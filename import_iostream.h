@@ -13,7 +13,7 @@
 #include <vector>
 #include <unordered_set>
 #include <unordered_map>
-#include <memory.h>
+#include <memory>
 using namespace std;
 
 #endif //LEETCODE_HEAD_H

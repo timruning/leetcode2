@@ -7,7 +7,7 @@
 #include "../medium/863AllNodesDistanceKinBinaryTree.cpp"
 
 using namespace std;
-int null = (int) (0x80000001);
+//int null = (int) (0x80000001);
 
 int main() {
     Solution solution;
