@@ -35,7 +35,7 @@ void qsort(int vec[], int begin, int end) {
     qsort(vec, k + 1, end);
 }
 
-void ajustHeap(vector<int>& vec, int begin, int end) {
+void adjustHeap(vector<int>& vec, int begin, int end) {
     int top = begin;
     int x = vec[top];
     int left = top * 2 + 1;
@@ -51,20 +51,20 @@ void ajustHeap(vector<int>& vec, int begin, int end) {
         int tmp = vec[max_index];
         vec[max_index] = vec[top];
         vec[top] = tmp;
-        ajustHeap(vec, max_index, end);
+        adjustHeap(vec, max_index, end);
     }
 }
 
 void buildheap(vector<int>& vec, int begin, int end) {
     for (int i = (end + begin) / 2; i >= begin; i--) {
-        ajustHeap(vec, i, end);
+        adjustHeap(vec, i, end);
     }
 }
 
 void heapsort(vector<int>& vec, int begin, int end) {
     buildheap(vec,begin,end);
     for(int i=end;i>=begin;i--){
-        ajustHeap(vec,begin,i);
+        adjustHeap(vec,begin,i);
         int tmp=vec[begin];
         vec[begin]=vec[i];
         vec[i]=tmp;
