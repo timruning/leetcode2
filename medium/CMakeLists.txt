@@ -1,2 +1,2 @@
 aux_source_directory(. MEDIUM_SRC)
-add_library(medium ${MEDIUM_SRC} 907SumofSubarrayMinimums.cpp)
+add_library(medium ${MEDIUM_SRC} 907SumofSubarrayMinimums.cpp 5LongestPalindromicSubstring.cpp 207CourseSchedule.cpp)
