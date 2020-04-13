@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libEASY.a  CMakeFiles/EASY.dir/11ContainerWithMostWater.cpp.o CMakeFiles/EASY.dir/55JumpGame.cpp.o CMakeFiles/EASY.dir/63UniquePathsII.cpp.o CMakeFiles/EASY.dir/949LargestTimeforGivenDigits.cpp.o CMakeFiles/EASY.dir/interface_10_qingwatiao.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libEASY.a
