@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/songfeng/workspace/leetcode/leetcode2/algorithm/ManachersAlgorith.cpp
+iostream
+-
+string
+-
+vector
+-
+
+/Users/songfeng/workspace/leetcode/leetcode2/algorithm/algorithm2.cpp
+iostream
+-
+
