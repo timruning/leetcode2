@@ -1,2 +1,2 @@
 aux_source_directory(. MEDIUM_SRC)
-add_library(medium ${MEDIUM_SRC} 907SumofSubarrayMinimums.cpp 5LongestPalindromicSubstring.cpp 207CourseSchedule.cpp 464CanIWin.cpp 61RotateList.cpp 1314MatrixBlockSum.cpp)
+add_library(medium ${MEDIUM_SRC} 907SumofSubarrayMinimums.cpp 5LongestPalindromicSubstring.cpp 207CourseSchedule.cpp 464CanIWin.cpp 61RotateList.cpp 1314MatrixBlockSum.cpp CircularArrayLoop457.cpp 1177CanMakePalindromefromSubstring.cpp)

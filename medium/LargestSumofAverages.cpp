@@ -8,7 +8,6 @@
  * 813
  * */
 #include "../import_iostream.h"
-
 class LargestSumofAverages {
 public:
     double tmpMem[200][200];
