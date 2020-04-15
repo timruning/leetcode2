@@ -4,7 +4,9 @@
 
 #include "../import_iostream.h"
 
-void printVec(const vector<int> &vec) {
+template <typename T>
+
+void printVec(const vector<T> &vec) {
     for (int i = 0; i < vec.size(); i++)
         cout << vec[i] << " ";
     cout << endl;
