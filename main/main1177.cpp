@@ -1,5 +1,5 @@
 #include "../medium/1177CanMakePalindromefromSubstring.cpp"
-#include "../common/common.h"
+#include "../common/common.cpp"
 #include <istream>
 using namespace std;
 int main() {
