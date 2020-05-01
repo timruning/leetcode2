@@ -1,5 +1,5 @@
 #include "../medium/LargestSumofAverages.cpp"
-#include "../common/common.cpp"
+#include "../common/common.h"
 #include "../medium/firstLeftIterator.cpp"
 #include "../medium/CircularArrayLoop457.cpp"
 int main() {

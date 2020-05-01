@@ -9,8 +9,14 @@ using namespace std;
 
 class Solution {
 public:
-    string largestTimeFromDigits(vector<int> &A) {
-        {{0,1,2,3},{1,0,2,3}}
-        return string("sdf");
+    int numWays(int n) {
+        long long a=1;
+        long long b=1;
+        for(int i=0;i<=n-2;i++){
+            int tm= b;
+            b=(a+b)%1000000007;
+            a= tm;
+        }
+        return b%1000000007;
     }
 };
