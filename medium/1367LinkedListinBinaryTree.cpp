@@ -51,15 +51,55 @@ struct TreeNode {
 
 class Solution {
 public:
-    TreeNode *find(ListNode *head, TreeNode *root) {
-        vector<TreeNode *> stack;
-        TreeNode *p=root;
-        while (){
-
+    bool checkNode(ListNode *head, TreeNode *root) {
+        vector<TreeNode *> queue;
+        TreeNode *p = root;
+        ListNode *p2 = head;
+        queue.push_back(p);
+        while (p2 != NULL && queue.size() > 0) {
+            p2 = p2->next;
+            if (p2 == NULL) {
+                return true;
+            }
+            int n = queue.size();
+            for (int i = 0; i < n; i++) {
+                TreeNode *node = queue[i];
+                if (node->left != NULL && node->left->val == p2->val) {
+                    queue.push_back(node->left);
+                }
+                if (node->right != NULL && node->right->val == p2->val) {
+                    queue.push_back(node->right);
+                }
+            }
+            queue.erase(queue.begin(), queue.begin() + n);
         }
+        if(p2!=NULL)
+            return false;
+        else
+            return true;
     }
 
     bool isSubPath(ListNode *head, TreeNode *root) {
-        TreeNode *p = find(head, root);
+        TreeNode *p = root;
+        vector<TreeNode *> stack;
+        if (head == NULL) {
+            return true;
+        }
+        while (p != NULL || stack.size() > 0) {
+            if (p != NULL) {
+                if (p->val == head->val) {
+                    bool flag = checkNode(head, p);
+                    if (flag)
+                        return flag;
+                }
+                stack.push_back(p);
+                p = p->left;
+            } else {
+                p = stack[stack.size() - 1];
+                stack.pop_back();
+                p = p->right;
+            }
+        }
+        return false;
     }
 };
