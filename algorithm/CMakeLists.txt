@@ -1,2 +1,2 @@
 cmake_minimum_required(VERSION 3.12)
-add_library(ALGORITHM 152MaximumProductSubarray.cpp 54SpiralMatrix.cpp 713SubarrayProductLessThanK.cpp)
+add_library(ALGORITHM 152MaximumProductSubarray.cpp 54SpiralMatrix.cpp 713SubarrayProductLessThanK.cpp trapping-rain-water-ii407.cpp count-triplets-that-can-form-two-arrays-of-equal-xor1442.cpp)

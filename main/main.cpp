@@ -12,4 +12,5 @@ int main() {
     }
     cout << endl;
     cout << "hello\t" << root->value << endl;
+    cout<<"hello world"<<endl;
 }

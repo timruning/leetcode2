@@ -9,6 +9,6 @@ using namespace std;
 
 int main() {
     Solution solution;
-    int num = solution.maximumSwap(9973);
+    int num = solution.maximumSwap(1234);
     cout << num << endl;
 }
