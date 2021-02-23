@@ -11,12 +11,42 @@
 #include <vector>
 #include <iostream>
 #include <unordered_map>
+//#include <math.h>
 
 using namespace std;
 
 class Solution {
 public:
     int minSubarray(vector<int>& A, int p) {
+        int n= A.size();
+        vector<int> sums(A.size(),0);
+        int sum=0;
+        for(int i=0;i<n;i++){
+            sum= (sum+A[i])%p;
+            A[i]=sum;
+        }
+        if(A[n-1]==0){
+            return 0;
+        }
+        int result =n;
+        unordered_map<int,int> map;
+        map[0]= -1;
+        for(int i=0;i<n;i++){
+            map[A[i]]=i;
+            int diff = (A[i]-A[n-1]+p)%p;
+            if(map.find(diff)!=map.end()){
+                result = min(result,i-map[diff]);
+            }
+        }
+        if(result<n){
+            return result;
+        }else{
+            return -1;
+        }
+
+    }
+
+    int minSubarray2(vector<int>& A, int p) {
         int n = A.size();
         getModularPrefixSum(A, n, p);
         if (A[n-1] == 0) return 0;  // The sum is already divisible by p

@@ -1,2 +1,2 @@
 aux_source_directory(. MEDIUM_SRC)
-add_library(medium ${MEDIUM_SRC} 907SumofSubarrayMinimums.cpp 5LongestPalindromicSubstring.cpp 207CourseSchedule.cpp 464CanIWin.cpp 61RotateList.cpp 1314MatrixBlockSum.cpp CircularArrayLoop457.cpp 1177CanMakePalindromefromSubstring.cpp InvalidTransactions1169.cpp 148SortList.cpp 138CopyListwithRandomPointer.cpp 143ReorderList.cpp 1367LinkedListinBinaryTree.cpp 1171RemoveZeroSumConsecutiveNodesfromLinkedList.cpp 430FlattenaMultilevelDoublyLinkedList.cpp 725SplitLinkedListinParts.cpp 445AddTwoNumbersII.cpp 817LinkedListComponents.cpp 1019NextGreaterNodeInLinkedList.cpp)
+add_library(medium ${MEDIUM_SRC} 1733MinimumNumberofPeopletoTeach.cpp 840MagicSquaresInGrid.cpp 1552MagneticForceBetweenTwoBalls.cpp)
