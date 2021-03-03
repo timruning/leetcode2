@@ -7,7 +7,6 @@
 #include "../medium/662MaximumWidthofBinaryTree.cpp"
 
 int main(){
-    cout<<"70"<<endl;
     int nodes[]={1,3,2,5,3,null,9};
     TreeNode* root=buildTree(nodes,7);
     Solution sol;

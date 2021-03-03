@@ -1,5 +1,5 @@
 //
-// Created by 宋峰 on 2021/2/26.
+// Created by 宋峰 on 2021/3/2.
 //
 
 /**
@@ -14,10 +14,9 @@
  * };
  */
 #include <vector>
-#include <iostream>
 
-int null = (int) (0x80000001);
 using namespace std;
+int null = (int) (0x80000001);
 
 struct TreeNode {
     int val;
@@ -29,44 +28,6 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
-
-class Solution {
-public:
-    int widthOfBinaryTree(TreeNode *root) {
-        int result = 0;
-
-        vector<pair<size_t, TreeNode *> > queue;
-        vector<pair<size_t, TreeNode *> > queue2;
-        if (root == NULL) {
-            return result;
-        }
-        queue.push_back(pair<size_t, TreeNode *>(0, root));
-        while (queue.size() > 0) {
-            result = queue[queue.size() - 1].first - queue[0].first + 1 > result ? queue[queue.size() - 1].first -
-                                                                                   queue[0].first + 1 : result;
-            int miss = 0;
-            for (int i = 0; i < queue.size(); i++) {
-                TreeNode *pre = queue[i].second;
-                size_t index = queue[i].first;
-                cout << queue[i].second->val << endl;
-                if (pre->left != NULL) {
-                    size_t index2 = 2 * index;
-                    queue2.push_back(pair<size_t, TreeNode *>(index2, pre->left));
-                }
-
-                if (pre->right != NULL) {
-                    size_t index2 = 2 * index + 1;
-                    queue2.push_back(pair<size_t, TreeNode *>(index2, pre->right));
-                }
-            }
-
-            queue.clear();
-            queue = queue2;
-            queue2.clear();
-        }
-        return result;
-    }
 };
 
 TreeNode *buildTree(int a[], int n) {
@@ -114,3 +75,55 @@ TreeNode *buildTree(int a[], int n) {
     }
     return root;
 }
+
+class Solution {
+public:
+    int check(vector<TreeNode *> stack, TreeNode *tail, int sum) {
+        int total = tail->val;
+        int result = 0;
+        for (int i = stack.size() - 1; i >= 0; i--) {
+            if (total == sum) {
+                result += 1;
+            }
+            total += stack[i]->val;
+        }
+        if (total == sum) {
+            return result + 1;
+        } else {
+            return result;
+        }
+    }
+
+    int pathSum(TreeNode *root, int sum) {
+        vector<TreeNode *> stack;
+        TreeNode *pre = root;
+        int result = 0;
+        while (pre != NULL || stack.size() > 0) {
+            while (pre != NULL) {
+                stack.push_back(pre);
+                if (pre->left != NULL) {
+                    pre = pre->left;
+                } else {
+                    pre = pre->right;
+                }
+            }
+            TreeNode *tail = stack[stack.size() - 1];
+            stack.pop_back();
+            result += check(stack, tail, sum);
+
+            while (stack.size() > 0) {
+                TreeNode *tail2 = stack[stack.size() - 1];
+                stack.pop_back();
+                if (tail == tail2->left) {
+                    stack.push_back(tail2);
+                    pre = tail2->right;
+                    break;
+                } else {
+                    tail = tail2;
+                    result += check(stack, tail, sum);
+                }
+            }
+        }
+        return result;
+    }
+};

@@ -1,5 +1,5 @@
 //
-// Created by 宋峰 on 2021/2/26.
+// Created by 宋峰 on 2021/3/2.
 //
 
 /**
@@ -14,7 +14,6 @@
  * };
  */
 #include <vector>
-#include <iostream>
 
 int null = (int) (0x80000001);
 using namespace std;
@@ -29,44 +28,6 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
 
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
-
-class Solution {
-public:
-    int widthOfBinaryTree(TreeNode *root) {
-        int result = 0;
-
-        vector<pair<size_t, TreeNode *> > queue;
-        vector<pair<size_t, TreeNode *> > queue2;
-        if (root == NULL) {
-            return result;
-        }
-        queue.push_back(pair<size_t, TreeNode *>(0, root));
-        while (queue.size() > 0) {
-            result = queue[queue.size() - 1].first - queue[0].first + 1 > result ? queue[queue.size() - 1].first -
-                                                                                   queue[0].first + 1 : result;
-            int miss = 0;
-            for (int i = 0; i < queue.size(); i++) {
-                TreeNode *pre = queue[i].second;
-                size_t index = queue[i].first;
-                cout << queue[i].second->val << endl;
-                if (pre->left != NULL) {
-                    size_t index2 = 2 * index;
-                    queue2.push_back(pair<size_t, TreeNode *>(index2, pre->left));
-                }
-
-                if (pre->right != NULL) {
-                    size_t index2 = 2 * index + 1;
-                    queue2.push_back(pair<size_t, TreeNode *>(index2, pre->right));
-                }
-            }
-
-            queue.clear();
-            queue = queue2;
-            queue2.clear();
-        }
-        return result;
-    }
 };
 
 TreeNode *buildTree(int a[], int n) {
@@ -114,3 +75,56 @@ TreeNode *buildTree(int a[], int n) {
     }
     return root;
 }
+
+class Solution {
+public:
+    int countNodes(TreeNode *root) {
+        vector<TreeNode *> stack;
+        TreeNode *pre = root;
+        int layer = 0;
+        int num = 0;
+        int flag = 0;
+
+        while (pre != nullptr || stack.size() > 0) {
+            while (pre != nullptr) {
+                stack.push_back(pre);
+                if (pre->left != nullptr) {
+                    pre = pre->left;
+                } else {
+                    pre = pre->right;
+                }
+            }
+            if (flag == 0) {
+                layer = stack.size();
+                num += 1;
+                flag = 1;
+            } else {
+                if (layer == stack.size()) {
+                    num += 1;
+                } else {
+                    break;
+                }
+            }
+            TreeNode *tail = stack[stack.size() - 1];
+            stack.pop_back();
+            while (stack.size() > 0) {
+                TreeNode *tail2 = stack[stack.size() - 1];
+                stack.pop_back();
+                if (tail == tail2->left) {
+                    stack.push_back(tail2);
+                    pre = tail2->right;
+                    break;
+                } else {
+                    tail = tail2;
+                }
+            }
+        }
+
+        if (layer == 0) {
+            return 0;
+        } else {
+            return pow(2, layer - 1) - 1 + num;
+        }
+
+    }
+};

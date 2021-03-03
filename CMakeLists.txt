@@ -10,4 +10,4 @@ add_subdirectory(main)
 add_subdirectory(algorithm)
 aux_source_directory(. DIR_SRCS)
 
-add_executable(leetcode ALGORITHM EASY main/main_1552MagneticForceBetweenTwoBalls.cpp)
+add_executable(leetcode ALGORITHM EASY main/main_849MaximizeDistancetoClosestPerson.cpp)
