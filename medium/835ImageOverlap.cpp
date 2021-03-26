@@ -9,36 +9,40 @@ using namespace std;
 class Solution {
 public:
     int largestOverlap(vector<vector<int>>& A, vector<vector<int>>& B) {
-        //record the coordinate of all the '1' in A
-        //record the coordinate of all the '1' in B
-        vector<pair<int,int>> A1;
-        vector<pair<int,int>> B1;
-        for(int r=0;r<A.size();r++)
-            for(int c=0;c<A[0].size();c++){
-                if(A[r][c]==1)  A1.push_back(pair<int,int>(r,c));
-                if(B[r][c]==1)  B1.push_back(pair<int,int>(r,c));
+        vector<pair<int,int>> A_1;
+        for(int i=0;i<A.size();i++){
+            for(int j=0;j<A[i].size();j++){
+                if(A[i][j]==1){
+                    A_1.push_back(pair<int,int>(i,j));
+                }
             }
-
-
-        //Step1: For all '1' in A, find all the movements which we can get score from it.
-        unordered_map<int, int> ht;
-        for(auto ca:A1){
-            for(auto cb:B1){
-                int hashkey=(ca.first-cb.first)*100
-                            +(ca.second-cb.second);
-                ht[hashkey]++;
+        }
+        vector<pair<int,int>> B_1;
+        for(int i=0;i<B.size();i++){
+            for(int j=0;j<B[i].size();j++){
+                if(B[i][j]==1){
+                    B_1.push_back(pair<int,int>(i,j));
+                }
             }
         }
 
-        //Step 2: For all movements found in step1, find the one who scores most. Return the score.
-        int ans=0;
-        for(auto it:ht){
-            ans = max(ans,it.second);
+        int  result =0 ;
+        unordered_map<int,int> map;
+        for(int i=0;i<A_1.size();i++){
+            for(int j=0;j<B_1.size();j++){
+                int key= (A_1[i].first-B_1[j].first)*10000 + (A_1[i].second-B_1[j].second);
+                if(map.find(key)==map.end()){
+                    map[key]=1;
+                }else{
+                    map[key]+=1;
+                }
+                if(map[key]>result){
+                    result=map[key];
+                }
+            }
         }
 
-        return ans;
+        return result;
+
     }
 };
-int main(){
-
-}
