@@ -8,5 +8,8 @@
 #include "../medium/42TrappingRainWater.cpp"
 using namespace std;
 int main(){
-    vector<int> vec({});
+    vector<int> vec({5,4,1,2});
+    Solution sol;
+    int n = sol.trap(vec);
+    cout<<n<<endl;
 }

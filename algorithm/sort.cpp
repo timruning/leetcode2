@@ -35,7 +35,7 @@ void qsort(int vec[], int begin, int end) {
     qsort(vec, k + 1, end);
 }
 
-void adjustHeap(vector<int>& vec, int begin, int end) {
+void adjustHeap(vector<int> &vec, int begin, int end) {
     int top = begin;
     int x = vec[top];
     int left = top * 2 + 1;
@@ -55,18 +55,54 @@ void adjustHeap(vector<int>& vec, int begin, int end) {
     }
 }
 
-void buildheap(vector<int>& vec, int begin, int end) {
+void buildheap(vector<int> &vec, int begin, int end) {
     for (int i = (end + begin) / 2; i >= begin; i--) {
         adjustHeap(vec, i, end);
     }
 }
 
-void heapsort(vector<int>& vec, int begin, int end) {
-    buildheap(vec,begin,end);
-    for(int i=end;i>=begin;i--){
-        adjustHeap(vec,begin,i);
-        int tmp=vec[begin];
-        vec[begin]=vec[i];
+void heapsort(vector<int> &vec, int begin, int end) {
+    buildheap(vec, begin, end);
+    for (int i = end; i >= begin; i--) {
+        adjustHeap(vec, begin, i);
+        int tmp = vec[begin];
+        vec[begin] = vec[i];
+        vec[i] = tmp;
+    }
+}
+
+void adjust(vector<int> &vec, int begin, int end) {
+    int top = begin;
+    int left = 2 * begin + 1;
+    int right = 2 * begin + 2;
+    if (left <end && vec[left] > vec[top]) {
+        top = left;
+    }
+    if (right < end && vec[right] > vec[top]) {
+        top = right;
+    }
+    if (top == begin) {
+        return;
+    } else {
+        int tmp =vec[begin];
+        vec[begin]=vec[top];
+        vec[top]=tmp;
+        adjust(vec, top, end);
+    }
+}
+
+void buidheap1(vector<int> &vec, int begin, int end) {
+    for (int i = (begin + end) / 2; i >= begin; i--) {
+        adjust(vec, i, end);
+    }
+}
+
+void heapsort1(vector<int> &vec, int begin, int end){
+    buidheap1(vec,begin,end);
+    for(int i=end-1;i>=begin;i--){
+        int tmp = vec[begin];
+        vec[begin] = vec[i];
         vec[i]=tmp;
+        adjust(vec,begin,i);
     }
 }

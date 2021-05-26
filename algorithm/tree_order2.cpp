@@ -8,6 +8,21 @@
 
 using namespace std;
 
+void pre_order1(TreeNode *root) {
+    vector<TreeNode *> stack;
+    TreeNode *pre = root;
+    while (pre != nullptr || stack.size()>0) {
+        while (pre!= nullptr){
+            stack.push_back(pre);
+            cout<< pre->val<<" ";
+            pre= pre->left;
+        }
+        pre = stack[stack.size()-1];
+        stack.pop_back();
+        pre = pre->right;
+    }
+}
+
 void pre_order(TreeNode *root) {
     vector<TreeNode *> stack;
     TreeNode *p = root;
@@ -24,6 +39,21 @@ void pre_order(TreeNode *root) {
             if (stack.size() == 0)
                 break;
         }
+    }
+}
+
+void mid_order1(TreeNode *root){
+    TreeNode *pre = root;
+    vector<TreeNode * > stack;
+    while (pre!= nullptr || stack.size()>0){
+        while (pre!= nullptr){
+            stack.push_back(pre);
+            pre=pre->left;
+        }
+        pre= stack[stack.size()-1];
+        cout<<pre->val<<" ";
+        stack.pop_back();
+        pre=pre->right;
     }
 }
 
@@ -45,7 +75,35 @@ void mid_order(TreeNode *root) {
         }
     }
 }
-
+void post_order1(TreeNode *root) {
+    TreeNode *pre =root;
+    vector<TreeNode* > stack;
+    while (pre!=nullptr){
+        while (pre!= nullptr){
+            stack.push_back(pre);
+            if(pre->left!= nullptr){
+                pre=pre->left;
+            }else{
+                pre=pre->right;
+            }
+        }
+        TreeNode* tail1 = stack[stack.size()-1];
+        cout<<tail1->val<<" ";
+        stack.pop_back();
+        while (stack.size()>0){
+            TreeNode* tail2 = stack[stack.size()-1];
+            stack.pop_back();
+            if(tail1==tail2->left){
+                stack.push_back(tail2);
+                pre=tail2->right;
+                break;
+            }else{
+                tail1=tail2;
+                cout<<tail1->val<<" ";
+            }
+        }
+    }
+}
 void post_order(TreeNode *root) {
     vector<TreeNode *> stack;
     TreeNode *cur = root;
@@ -56,7 +114,7 @@ void post_order(TreeNode *root) {
         if ((cur->right == nullptr && cur->left == nullptr) ||
             (pre != nullptr && (pre == cur->left || pre == cur->right))) {
             pre = cur;
-            cout<<cur->val<<" ";
+            cout << cur->val << " ";
             stack.pop_back();
         } else {
             if (cur->right != nullptr) {
