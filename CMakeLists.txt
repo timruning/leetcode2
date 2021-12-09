@@ -10,4 +10,4 @@ add_subdirectory(main)
 add_subdirectory(algorithm)
 aux_source_directory(. DIR_SRCS)
 
-add_executable(leetcode ALGORITHM EASY medium main/main_1996TheNumberofWeakCharactersintheGame.cpp)
+add_executable(leetcode ALGORITHM EASY medium algorithm/CreateHuffmanTree.cpp)
