@@ -68,7 +68,7 @@ public:
             x = parent[x];
             if (x == binary.size() - 2) {
                 break;
-            }
+             }
         }
         return result;
     }
