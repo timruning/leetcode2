@@ -1,2 +1,2 @@
 aux_source_directory(. MEDIUM_SRC)
-add_library(medium ${MEDIUM_SRC} 71SimplifyPath.cpp 85MaximalRectangle.cpp 220ContainsDuplicateIII.cpp 1654MinimumJumpstoReachHome.cpp 2029StoneGameIX.cpp 1818MinimumAbsoluteSumDifference.cpp 1996TheNumberofWeakCharactersintheGame.cpp 1712WaystoSplitArrayIntoThreeSubarrays.cpp)
+add_library(medium ${MEDIUM_SRC} 71SimplifyPath.cpp 85MaximalRectangle.cpp 220ContainsDuplicateIII.cpp 1654MinimumJumpstoReachHome.cpp 2029StoneGameIX.cpp 1818MinimumAbsoluteSumDifference.cpp 1996TheNumberofWeakCharactersintheGame.cpp 1712WaystoSplitArrayIntoThreeSubarrays.cpp 198HouseRobber.cpp 213HouseRobberII.cpp 740DeleteandEarn.cpp)
